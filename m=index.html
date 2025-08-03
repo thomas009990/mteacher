@@ -1,0 +1,159 @@
+<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 Love & Romance Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #f06292, #64b5f6, #81c784);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    input[type="text"] {
+      width: 85%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+      transition: box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      box-shadow: 0 0 10px #ff4081;
+    }
+
+    button {
+      width: 85%;
+      padding: 12px;
+      margin: 10px 0;
+      background: linear-gradient(to right, #ff4081, #ffca28);
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .result {
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hearts span {
+      position: absolute;
+      color: #f06292;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        top: -10%;
+        opacity: 1;
+        left: calc(100% * var(--x));
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 20px;
+      }
+
+      input, button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts">
+  <span style="--x:0.1;">💖</span>
+  <span style="--x:0.3;">💘</span>
+  <span style="--x:0.5;">💝</span>
+  <span style="--x:0.7;">💕</span>
+  <span style="--x:0.9;">💗</span>
+</div>
+
+<div class="container">
+  <h1>Love & Romance Measurement</h1>
+  <input type="text" id="name1" placeholder="Your Name">
+  <input type="text" id="name2" placeholder="Partner's Name">
+  <button onclick="checkLove()">Check Love %</button>
+  <button onclick="checkRomance()">Check Romance %</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function showResult(type) {
+    const percent = Math.floor(Math.random() * 101);
+    const result = document.getElementById("result");
+    result.innerHTML = `${type} Score: <span style="color:yellow;">${percent}%</span>`;
+  }
+
+  function checkLove() {
+    showResult("💘 Love");
+  }
+
+  function checkRomance() {
+    showResult("💋 Romance");
+  }
+</script>
+
+</body>
+</html>
